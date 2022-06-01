@@ -118,8 +118,6 @@ main{
     animation: win-animation 1000ms 3;
 }
 @keyframes win-animation{
-    from {font-size: 32px;}
-    to { font-size: 42px;}
     0% {color: white;}
     30% {color: yellow;}
     70% {color: red;}

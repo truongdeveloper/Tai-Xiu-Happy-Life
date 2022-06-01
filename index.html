@@ -69,7 +69,7 @@
         <div class="dot-white"></div>
         <div class="dot-black"></div>
       </div>
-      <div class="place-bet hide">
+      <div class="place-bet">
         <div class="place-fare">
           <label for="bet">Số tiền cược</label>
           <input
@@ -78,16 +78,19 @@
             id="money-bet"
             min="10000"
             max="1000000"
-            step="10000"
+            step="10000"  
             value="0"
           />
+          <div class="bet-waring hide" style="color: red;">
+            Nhập tiền cược
+          </div>
         </div>
         <div class="bet-action">
           <div class="btn__bet-tai">ĐẶT TÀI</div>
           <div class="btn__bet-xiu">ĐẶT XỈU</div>
         </div>
       </div>
-      <div class="login button">Đăng ký Để Chơi Ngay</div>
+      <div class="login button hide">Đăng ký Để Chơi Ngay</div>
       <div class="over-lay hide"></div>
       <div class="register">
         <div class="img-register">
@@ -109,7 +112,7 @@
           </center>
         </div>
       </div>
-      <h2 class="surplus hide">$</h2>
+      <h2 class="surplus">$</h2>
       <div class="muted">
 
       </div>

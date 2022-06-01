@@ -5,6 +5,43 @@ let result = document.querySelector('.result');
 let winTai = document.querySelector('.than-tai');
 let winXiu = document.querySelector('.less-xiu');
 let history = document.querySelector('.history');
+let betTai = document.querySelector('.input-bet__than');
+let betXiu = document.querySelector('.input-bet__less');
+let inputBet = document.querySelector('input[type="mumber"]');
+let btnBetTai = document.querySelector('.btn__bet-tai');
+let btnBetXiu = document.querySelector('.btn__bet-xiu');
+
+
+function betAction() {
+    btnBetXiu.classList.remove('hide');
+    btnBetTai.classList.remove('hide');
+    betTai.innerHTML = "";
+    betXiu.innerHTML = "";
+    inputBet.value = 0;
+    var moneyBet;
+    inputBet.onchange = function(e){
+        moneyBet = e.target.value;
+        console.log(moneyBet)
+    }
+    console.log(moneyBet)
+    // if(moneyBet == 0 || moneyBet == undefined){
+    //     document.querySelector('.bet-waring').classList.remove('hide')
+    // }else{
+        // document.querySelector('.bet-waring').classList.add('hide')
+        btnBetTai.onclick = function() {
+            betTai.innerHTML = moneyBet.toString();
+            btnBetXiu.classList.add('hide');
+        }
+        btnBetXiu.onclick = function() {
+            betXiu.innerHTML = moneyBet.toString();
+            btnBetTai.classList.add('hide')
+        }
+    // }
+}
+// betAction()
+setInterval(() => {
+    betAction()
+},20000);
 let resultArr = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1];
 var diceArr = [
     mot = '<img src="assets/img/1.png" alt="" >',
