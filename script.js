@@ -26,12 +26,23 @@ function gameDice() {
     let Sibo1 = randomDice();
     let Sibo2 = randomDice();
     let Sibo3 = randomDice();
+
     sucSac1.innerHTML = diceArr[Sibo1];
     sucSac2.innerHTML = diceArr[Sibo2];
     sucSac3.innerHTML = diceArr[Sibo3];
     return Sibo1 + Sibo2 + Sibo3 + 3;
 }
-function gameOnBaby() { setTimeout(() => {
+function resultHistory(array) {
+    let historyHTML = array.map((myArr, index) =>{
+        if(myArr){
+            return '<div class="dot-black"></div>';
+        }else{
+            return  '<div class="dot-white"></div>';
+        }
+    })
+    history.innerHTML = historyHTML.join('')
+}
+function animation() {
     if(gameDice() > 10){
         resultArr.push(1);
         winTai.classList.add('win-animation')
@@ -46,12 +57,15 @@ function gameOnBaby() { setTimeout(() => {
         }, 2000);
     }
     resultArr.shift();
-    console.log(resultArr)
+}
+function gameOnBaby() { setTimeout(() => {
+    animation();
+    setTimeout(() => {
+        resultHistory(resultArr);
+    }, 1000);
     gameOnBaby();
 }, 3000);
 }
-
-
 
 gameOnBaby()
 

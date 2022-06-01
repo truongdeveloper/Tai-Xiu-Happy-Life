@@ -63,6 +63,8 @@ main{
     align-items: center;
     background-color: rgb(138, 65, 65);
     border-radius: 4rem;
+    box-shadow: 10px 10px 10px rgb(50, 50, 50);
+
 }
 .result{
     display: flex;
@@ -267,6 +269,7 @@ footer > center{
     font-size: 20px;
     animation: border-nhay 1000ms infinite;
 }
+
 .muted{
     position: fixed;
     background-color: rgb(158, 158, 0);
@@ -275,4 +278,11 @@ footer > center{
     bottom: 50px;
     right: 40px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1080px) {
+    .em-gai-3,
+    .em-gai-4{
+        display: none;
+    }
 }
