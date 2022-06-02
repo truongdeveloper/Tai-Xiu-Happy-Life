@@ -10,7 +10,8 @@
 body{
     font-family: 'Ubuntu', sans-serif;
     color: aliceblue;
-    background-image: linear-gradient(rgb(27, 27, 27),rgb(102, 102, 102));
+    background-image: url(assets/img/starry_sky_stars_clouds_197074_3840x2160.jpg);
+    background-size:contain;
 }
 img{
     border-radius: 8px;

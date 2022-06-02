@@ -7,41 +7,9 @@ let winXiu = document.querySelector('.less-xiu');
 let history = document.querySelector('.history');
 let betTai = document.querySelector('.input-bet__than');
 let betXiu = document.querySelector('.input-bet__less');
-let inputBet = document.querySelector('input[type="mumber"]');
+let inputBet = document.querySelector('input[type="number"]');
 let btnBetTai = document.querySelector('.btn__bet-tai');
 let btnBetXiu = document.querySelector('.btn__bet-xiu');
-
-
-function betAction() {
-    btnBetXiu.classList.remove('hide');
-    btnBetTai.classList.remove('hide');
-    betTai.innerHTML = "";
-    betXiu.innerHTML = "";
-    inputBet.value = 0;
-    var moneyBet;
-    inputBet.onchange = function(e){
-        moneyBet = e.target.value;
-        console.log(moneyBet)
-    }
-    console.log(moneyBet)
-    // if(moneyBet == 0 || moneyBet == undefined){
-    //     document.querySelector('.bet-waring').classList.remove('hide')
-    // }else{
-        // document.querySelector('.bet-waring').classList.add('hide')
-        btnBetTai.onclick = function() {
-            betTai.innerHTML = moneyBet.toString();
-            btnBetXiu.classList.add('hide');
-        }
-        btnBetXiu.onclick = function() {
-            betXiu.innerHTML = moneyBet.toString();
-            btnBetTai.classList.add('hide')
-        }
-    // }
-}
-// betAction()
-setInterval(() => {
-    betAction()
-},20000);
 let resultArr = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1];
 var diceArr = [
     mot = '<img src="assets/img/1.png" alt="" >',
@@ -51,6 +19,42 @@ var diceArr = [
     nam = '<img src="assets/img/5.png" alt="" >',
     sau = '<img src="assets/img/6.png" alt="" >'
 ];
+
+function betAction() {
+    btnBetXiu.classList.remove('hide');
+    btnBetTai.classList.remove('hide');
+    document.querySelector('.bet-waring').classList.add('hide');
+    betTai.innerHTML = "";
+    betXiu.innerHTML = "";
+    inputBet.value = 0;
+    var moneyBet = 0;
+    
+    inputBet.onchange = function(e){
+        moneyBet = e.target.value;
+    }
+    console.log(moneyBet)
+    btnBetTai.onclick = function() {
+        if(!moneyBet == 0){
+            betTai.innerHTML = moneyBet.toString();
+            btnBetXiu.classList.add('hide');
+        }else{
+            document.querySelector('.bet-waring').classList.remove('hide');
+        }
+    }
+    btnBetXiu.onclick = function() {
+        if(!moneyBet == 0){
+            betXiu.innerHTML = moneyBet.toString();
+            btnBetTai.classList.add('hide')
+        }else{
+            document.querySelector('.bet-waring').classList.remove('hide');
+        }
+    }
+}
+// betAction();
+setInterval(() => {
+    betAction()
+}, 10000);
+
 
 let audio = document.querySelector('.muted');
 audio.muted = true;
@@ -85,13 +89,13 @@ function animation() {
         winTai.classList.add('win-animation')
         setTimeout(() => {
             winTai.classList.remove('win-animation')
-        }, 2000);
+        }, 5000);
     }else{
         resultArr.push(0);
         winXiu.classList.add('win-animation')
         setTimeout(() => {
             winXiu.classList.remove('win-animation')
-        }, 2000);
+        }, 5000);
     }
     resultArr.shift();
 }
@@ -101,7 +105,7 @@ function gameOnBaby() { setTimeout(() => {
         resultHistory(resultArr);
     }, 1000);
     gameOnBaby();
-}, 3000);
+}, 10000);
 }
 
 gameOnBaby()
@@ -123,5 +127,6 @@ function timeOut(time) {
         timeOut(time);
     }, 1000);
 }
+timeOut(currentTime)
 
 
